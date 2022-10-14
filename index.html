@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header> $ $ $  Rana-Imagination-World  $ $ $</header>
+    <aside class="aside"><div class="heading">Programmer:</div>
+    <div class="text">Rana Shakeel Ahmad</div></aside>
+    <div class="container">
+        <div class="row row1">
+            <div class="boxcover boxcover1"><div class="box1 box" onclick="boxf(box1);" style="background: red;"></div></div>
+            <div class="boxcover boxcover2"><div class="box2 box" onclick="boxf(box2);" style="background: violet;"></div></div>
+            <div class="boxcover boxcover3"><div class="box3 box" onclick="boxf(box3);" style="background: gray;"></div></div>
+        </div>
+        <div class="row row2">
+            <div class="boxcover boxcover4"><div class="box4 box" onclick="boxf(box4);" style="background: green;"></div></div>
+            <div class="boxcover boxcover5"><div class="box5 box" onclick="boxf(box5);" style="background: honeydew;"></div></div>
+            <div class="boxcover boxcover6"><div class="box6 box" onclick="boxf(box6);" style="background: yellowgreen;"></div></div> 
+        </div>
+        <div class="row row3">
+            <div class="boxcover boxcover7"><div class="box7 box" onclick="boxf(box7);" style="background: yellow;"></div></div>
+            <div class="boxcover boxcover8"><div class="box8 box" onclick="boxf(box8);" style="background: white;"></div></div>
+            <div class="boxcover boxcover9"><div class="box9 box" onclick="boxf(box9);" style="background: turquoise;"></div></div>
+        </div>
+    </div>
+    <button class="button">Restart</button>
+    <div class="winscreen"></div>
+    <span class="win">YouWin</span>
+    <div class="overscreen"></div>
+    <span class="over">Game Over</span>
+    <div class="invalid">invalid Choice</div>
+    <div class="turnbox">First Player's turn:</div>
+    <div class="playerindication">
+    <div class="playerone">First Player:- <div class="firstPlayerColorIndicator purple">Purple</div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h5"  viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>
+    </div>
+    <div class="playertwo">Second Player:- <div class="secondPlayerColorIndicator tan">Tan</div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>
+    </div>
+    <div class="colors">
+        <div class="color color1"></div>
+        <div class="color color2"></div>
+        <div class="color color3"></div>
+    </div>
+    </div>
+    <script>
+        var box = document.getElementsByClassName("box");
+        var box1 = document.querySelector(".box1");
+        var box2 = document.querySelector(".box2");
+        var box3 = document.querySelector(".box3");
+        var box4 = document.querySelector(".box4");
+        var box5 = document.querySelector(".box5");
+        var box6 = document.querySelector(".box6");
+        var box7 = document.querySelector(".box7");
+        var box8 = document.querySelector(".box8");
+        var box9 = document.querySelector(".box9");
+        const winscreen = document.querySelector(".winscreen");
+        const overscreen = document.querySelector(".overscreen");
+        const wintext = document.querySelector(".win");
+        const overtext = document.querySelector(".over")
+        const restart = document.querySelector("button");
+        const invalid = document.querySelector(".invalid");
+        const turnbox = document.querySelector(".turnbox");
+        const svg1 = document.querySelector(".h5");
+        const svg2 = document.querySelector(".w5");
+        const colorbox = document.querySelector(".colors");
+        const color1 = document.querySelector(".color1");
+        const color2 = document.querySelector(".color2");
+        const color3 = document.querySelector(".color3");
+        var firstPlayerColorIndicator = document.querySelector(".firstPlayerColorIndicator");
+        var secondPlayerColorIndicator = document.querySelector(".secondPlayerColorIndicator");
+        const playerindication = document.querySelector(".playerindication")
+        var boxx;
+        var firstPlayerColor = "purple";
+        var secondPlayerColor = "tan";
+        console.log(box1.style.background);
+        var a = 1, b=1,c=1,d,e,f;
+        var counter = 0;
+       
+        svg1.addEventListener('click',()=>{
+            f=1;
+            e=1;
+            d=1;
+            svg2.style.transform = "none";
+            colorbox.style.transform = "none";
+            if (b==1) {
+                b=0;
+                svg1.style.transform = "rotate(180deg)";
+                colorbox.style.display = "block";
+            } else {
+                b=1;
+                svg1.style.transform = "none";
+                colorbox.style.display = "none";
+            }
+        });
+        svg2.addEventListener('click',()=>{
+            f=0;
+            e=0;
+            d=0;
+            svg1.style.transform = "none";
+            if (c==1) {
+                c=0;
+                svg2.style.transform = "rotate(180deg)";
+                colorbox.style.display = "block";
+                colorbox.style.transform = "translate(0, 40px)";
+                // console.log("clicked");
+            } else {
+                c=1;
+                svg2.style.transform = "none";
+                colorbox.style.display = "none";
+                colorbox.style.tranform = "translate(0, -40px)";
+                // console.log("clicked back");
+            }
+           
+           
+        })
+        color1.onclick = function(){
+            b=1;
+            c=1;
+            svg2.style.transform = "none";
+            svg1.style.transform = "none";
+            colorbox.style.display = "none";
+            if (d==1) {
+                if ( secondPlayerColorIndicator.style.color == "aquamarine") {
+                    
+                } else {
+                    
+                    firstPlayerColor = "aquamarine";
+                    firstPlayerColorIndicator.style.color = "aquamarine";
+                    firstPlayerColorIndicator.innerHTML = "Blue";
+
+                }
+
+            } else {
+                if ( firstPlayerColorIndicator.style.color == "aquamarine") {
+                    
+                } else {
+                    secondPlayerColor = "aquamarine";
+                secondPlayerColorIndicator.style.color = "aquamarine";
+                   secondPlayerColorIndicator.innerHTML = "Blue";
+                }
+
+               
+            }
+        }
+        color2.onclick = function(){
+            b=1;
+            c=1;
+            svg2.style.transform = "none";
+            svg1.style.transform = "none";
+            colorbox.style.display = "none";
+            if (e==1) {
+                if ( secondPlayerColorIndicator.style.color == "teal") {
+                    
+                } else {
+                    
+                    firstPlayerColor = "teal";
+                    firstPlayerColorIndicator.style.color = "teal";
+                    firstPlayerColorIndicator.innerHTML = "Green";
+                    d=0;
+                }
+
+            } else {
+                if ( firstPlayerColorIndicator.style.color == "teal") {
+                    
+                } else {
+                    secondPlayerColor = "teal";
+                secondPlayerColorIndicator.style.color = "teal";
+                secondPlayerColorIndicator.innerHTML = "Green";
+                d=0;
+                   
+                }
+
+               
+            }
+        }
+        color3.onclick = function(){
+            b=1;
+            c=1;
+            svg2.style.transform = "none";
+            svg1.style.transform = "none";
+            colorbox.style.display = "none";
+            if (f==1) {
+                if ( secondPlayerColorIndicator.style.color == "tomato") {
+                    
+                } else {
+                    
+                    firstPlayerColor = "tomato";
+                    firstPlayerColorIndicator.style.color = "tomato";
+                    firstPlayerColorIndicator.innerHTML = "Red";
+                    d=0;
+                    e=0;
+                }
+
+            } else {
+                if ( firstPlayerColorIndicator.style.color == "tomato") {
+                    
+                } else {
+                    secondPlayerColor = "tomato";
+                secondPlayerColorIndicator.style.color = "tomato";
+                secondPlayerColorIndicator.innerHTML = "Red";
+                d=0;
+                 e=0;  
+                }
+
+               
+            }
+        }
+
+
+       
+        function boxf(boxx) {
+            if (boxx.style.background == "firstPlayerColor" || boxx.style.background == "secondPlayercolor") {
+               invalid.style.display = "block" 
+            } else {
+                invalid.style.display = "none";
+                counter=counter+1;
+                console.log(counter)
+                if (a==1) {
+
+                    boxx.style.background = firstPlayerColor;
+                    boxx.style.opacity = "1";
+                    console.log(boxx)
+                    turnbox.innerHTML = "Second Player's turn:";
+                    a=0;
+                } else {
+                    turnbox.innerHTML = "First Player's turn:";
+                boxx.style.background = secondPlayerColor;
+                boxx.style.opacity = "1";
+                console.log(boxx)
+                a=1;}
+            }
+            
+            if (box1.style.background==box2.style.background && box2.style.background==box3.style.background ||
+                box1.style.background==box4.style.background && box4.style.background==box7.style.background ||
+                box1.style.background==box5.style.background && box5.style.background==box9.style.background ||
+                box2.style.background==box5.style.background && box5.style.background==box8.style.background ||
+                box3.style.background==box6.style.background && box6.style.background==box9.style.background ||
+                box4.style.background==box5.style.background && box5.style.background==box6.style.background || 
+                box7.style.background==box8.style.background && box8.style.background==box9.style.background ||
+                box7.style.background==box5.style.background && box5.style.background==box3.style.background 
+                ) {
+                    document.querySelector(".container").style.zIndex = "-9";
+                    document.querySelector(".container").style.opacity = "0.3";
+                    turnbox.style.opacity = "0.3";
+                    if (a==0) {
+                        wintext.innerHTML = "First Player Win";
+                        wintext.style.color = firstPlayerColor;
+                    } else {
+                        
+                        wintext.innerHTML = "Second Player Win";
+
+                        wintext.style.color = secondPlayerColor;
+                    }
+                    winscreen.style.display = "block";
+                    wintext.style.display = "block";
+                    
+                }
+                if (counter>0) {
+                    playerindication.style.zIndex = "-99";
+                    
+                }
+                if (counter>=9 && winscreen.style.display != "block") {
+                    document.querySelector(".container").style.zIndex = "-9";
+                    overscreen.style.display = "block";
+                    overtext.style.display = "block";
+                }
+            restart.addEventListener('click',()=>{
+                document.querySelector(".container").style.zIndex = "1";
+                winscreen.style.display = "none";
+                wintext.style.display = "none";
+                overscreen.style.display = "none";
+                overtext.style.display = "none";
+                document.querySelector(".container").style.opacity = "1";
+                playerindication.style.zIndex = "1";
+                turnbox.style.opacity = "1";
+                counter = 0;
+                box1.style.background = "red";
+                box2.style.background = "violet";
+                box3.style.background = "gray";
+                box4.style.background = "green";
+                box5.style.background = "honeydew";
+                box6.style.background = "yellowgreen";
+                box7.style.background = "yellow";
+                box8.style.background = "white";
+                box9.style.background = "turquoise";
+                box1.style.opacity = "0";
+                box2.style.opacity = "0";
+                box3.style.opacity = "0";
+                box4.style.opacity = "0";
+                box5.style.opacity = "0";
+                box6.style.opacity = "0";
+                box7.style.opacity = "0";
+                box8.style.opacity = "0";
+                box9.style.opacity = "0";
+                
+                
+            })
+
+            
+        }
+        
+      
+    </script>
+</body>
+</html>
